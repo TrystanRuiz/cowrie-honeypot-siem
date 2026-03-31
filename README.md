@@ -33,12 +33,7 @@ Logged in as `cowrie@cowrie-honeypot` on VM 100. Fresh Ubuntu 22.04 system ready
 
 ### 4. Clone the Cowrie repository
 
-Creating the cowrie directory, cloning the official Cowrie repo from GitHub.
-
-```bash
-mkdir cowrie && cd cowrie
-git clone https://github.com/cowrie/cowrie
-```
+Creating a directory and cloning the official Cowrie repo from GitHub.
 
 ![Clone Cowrie](screenshots/installation/04-clone-cowrie.png)
 
@@ -46,20 +41,11 @@ git clone https://github.com/cowrie/cowrie
 
 Creating and activating a Python virtual environment for Cowrie's dependencies.
 
-```bash
-python3 -m venv cowrie-env
-source cowrie-env/bin/activate
-```
-
 ![Python Venv](screenshots/installation/05-python-venv.png)
 
 ### 6. Configure iptables port redirect
 
 Setting up an iptables NAT PREROUTING rule to redirect incoming SSH traffic on port 22 to Cowrie's listening port 2222. This makes the honeypot transparent to attackers.
-
-```bash
-sudo iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222
-```
 
 ![iptables Redirect](screenshots/installation/06-iptables-redirect.png)
 
@@ -71,11 +57,7 @@ Confirming the NAT PREROUTING rules are active with `sudo iptables-save`. The re
 
 ### 8. Start Cowrie
 
-Starting the Cowrie honeypot with `cowrie start`. TripleDES deprecation warnings are expected and non-breaking.
-
-```bash
-cowrie start
-```
+Starting the Cowrie honeypot. TripleDES deprecation warnings are expected and non-breaking.
 
 ![Cowrie Start](screenshots/installation/08-cowrie-start.png)
 
