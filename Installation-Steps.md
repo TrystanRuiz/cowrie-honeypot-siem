@@ -1,5 +1,7 @@
 # Installation Steps
 
+Orignal Video I followed - Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1 (the explain it better)
+
 ### 1. Create the VM in Proxmox
 
 Creating a new Ubuntu 22.04 VM (ID 100) on pve2 using a cloud image. 2 cores, 2GB RAM, 32GB disk with cloud-init for automated provisioning.
