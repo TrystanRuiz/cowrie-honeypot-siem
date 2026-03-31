@@ -15,4 +15,4 @@ Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
 
 - [Installation Steps](Installation-Steps.md) — VM creation, Cowrie setup, iptables redirect
 
-**(in progress)** — Brute force attack simulation, Splunk integration, and hardening documentation coming next.
+**(in progress)** — Brute force attack simulation and hardening documentation coming next.
