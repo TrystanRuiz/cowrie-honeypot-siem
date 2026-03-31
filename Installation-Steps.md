@@ -1,6 +1,6 @@
 # Installation Steps
 
-Orignal Video I followed - Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1 (the explain it better)
+Orignal Video I followed - Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1 (they explain it better)
 
 ### 1. Create the VM in Proxmox
 
