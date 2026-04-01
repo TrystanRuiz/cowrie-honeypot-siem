@@ -4,13 +4,13 @@ Orignal Video I followed - Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dq
 
 ### 1. Create the VM in Proxmox
 
-Creating a new Ubuntu 22.04 VM (ID 100) on pve2 using a cloud image. 2 cores, 2GB RAM, 32GB disk with cloud-init for automated provisioning.
+Creating a new Ubuntu VM (ID 100) on pve2 using a cloud image. 2 cores, 2GB RAM, 32GB disk with cloud-init for automated provisioning.
 
 ![Create VM](screenshots/installation/01-create-vm.png)
 
 ### 2. Ubuntu cloud-init provisioning
 
-Ubuntu 22.04 installing automatically via cloud-init (curtin). The cloud image handles OS setup without a manual installer.
+Ubuntu installing automatically via cloud-init (curtin). The cloud image handles OS setup without a manual installer.
 
 ![Ubuntu Install](screenshots/installation/02-ubuntu-install.png)
 
