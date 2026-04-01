@@ -16,7 +16,7 @@ Ubuntu installing automatically via cloud-init (curtin). The cloud image handles
 
 ### 3. Fresh shell on the honeypot VM
 
-Logged in as `cowrie@cowrie-honeypot` on VM 100. Fresh Ubuntu 22.04 system ready for Cowrie installation.
+Logged in as `cowrie@cowrie-honeypot` on VM 100. Fresh Ubuntu system ready for Cowrie installation.
 
 ![Fresh Shell](screenshots/installation/03-fresh-shell.png)
 
