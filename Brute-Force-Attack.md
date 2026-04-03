@@ -37,3 +37,7 @@ Splunk also builds a profile that ties everything together for one IP. For 192.1
 - Full list of every command that was executed
 
 ![Attacker profile summary](screenshots/brute-force/03-attacker-profile.png)
+
+---
+
+Next: [Hardening — UFW & Fail2Ban](Hardening-UFW-Fail2Ban.md)
