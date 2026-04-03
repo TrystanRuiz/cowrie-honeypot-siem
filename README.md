@@ -13,7 +13,12 @@ Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
 
 ## Documentation
 
-- [Installation Steps](Installation-Steps.md) — VM creation, Cowrie setup, iptables redirect
-- [Brute Force Attack](Brute-Force-Attack.md) — Hydra brute force attack against the honeypot
+### Installation Steps
+- [Cowrie Installation](Installation-Steps/Cowrie-Installation.md) — VM creation, Cowrie setup, iptables redirect
+- [Splunk Installation](Installation-Steps/Splunk-Installation.md) — *(in progress)*
+- [T-Pot Installation](Installation-Steps/T-Pot-Installation.md) — *(in progress)*
+- [UFW Installation](Installation-Steps/UFW-Installation.md) — *(in progress)*
+- [Fail2Ban Installation](Installation-Steps/Fail2Ban-Installation.md) — *(in progress)*
 
-**(in progress)** — Splunk integration and hardening documentation coming next.
+### Attack Simulation
+- [Brute Force Attack](Brute-Force-Attack.md) — Hydra brute force attack against the honeypot
