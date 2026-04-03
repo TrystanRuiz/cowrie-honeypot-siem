@@ -40,4 +40,5 @@ Splunk also builds a profile that ties everything together for one IP. For 192.1
 
 ---
 
+Hardening is the next phase 
 Next: [Hardening — UFW & Fail2Ban](Hardening-UFW-Fail2Ban.md)
