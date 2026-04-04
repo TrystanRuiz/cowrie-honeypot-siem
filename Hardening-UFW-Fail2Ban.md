@@ -16,6 +16,58 @@ Everything else gets dropped. If someone tries hitting any other port on this bo
 
 ![UFW status](screenshots/hardening/05-ufw-status.png)
 
+## Blocking a Single IP
+
+To test this out, I SSH'd into the honeypot from Kali (192.168.1.165) first to make sure the connection was working.
+
+![SSH working before block](screenshots/hardening/06-ssh-before-block.png)
+
+Then on the honeypot, I added a deny rule for that IP. The important thing here is using `ufw insert 1` instead of just `ufw deny`. If you just do `ufw deny`, the allow rules for ports 22 and 2222 get processed first and the traffic goes through anyway. `insert 1` puts the deny rule at the very top so it gets checked before anything else.
+
+```bash
+sudo ufw insert 1 deny from 192.168.1.165
+sudo ufw status numbered
+```
+
+![UFW deny rule inserted at position 1](screenshots/hardening/07-ufw-deny-ip.png)
+
+Back on Kali, tried running Hydra and SSH again. Both just hang and eventually time out. The IP is completely blocked from reaching the honeypot.
+
+![Kali blocked by UFW](screenshots/hardening/08-kali-blocked.png)
+
+After confirming it works, I deleted the rule to clean up.
+
+```bash
+sudo ufw delete deny from 192.168.1.165
+```
+
+![Rule deleted](screenshots/hardening/09-rule-deleted.png)
+
+## Blocking a Subnet
+
+Instead of blocking one IP at a time, you can block an entire subnet. This is useful if an attacker has multiple machines on the same network or if you want to block a whole range.
+
+```bash
+sudo ufw insert 1 deny from 192.168.1.0/24
+sudo ufw status numbered
+```
+
+This blocks every IP from 192.168.1.1 to 192.168.1.254.
+
+![Subnet block rule](screenshots/hardening/10-subnet-block.png)
+
+From Kali, SSH hangs again. The entire /24 is blocked.
+
+![Kali blocked by subnet rule](screenshots/hardening/11-subnet-blocked-kali.png)
+
+Cleaned up the rule after testing.
+
+```bash
+sudo ufw delete deny from 192.168.1.0/24
+```
+
+![Subnet rule deleted, clean UFW](screenshots/hardening/12-subnet-deleted.png)
+
 ## The Problem
 
 Before fail2ban, Hydra could brute force the honeypot and find passwords without any consequences. It would just keep running through the wordlist until it found matches.
