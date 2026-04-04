@@ -14,7 +14,7 @@ Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
 ## Documentation
 
 ### Attack Simulation & Hardening
-- [Brute Force Attack](Brute-Force-Attack.md) — Hydra brute force attack against the honeypot
+- [Brute Force Attack — Cowrie](Brute-Force-Attack-Cowrie.md) — Hydra brute force attack against the honeypot
 - [Hardening — UFW & Fail2Ban](Hardening-Cowrie-UFW-Fail2Ban.md) — UFW firewall rules, IP/subnet blocking, fail2ban setup
 
 ### Installation Steps
