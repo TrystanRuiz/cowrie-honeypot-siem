@@ -14,12 +14,12 @@ Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
 ## Documentation
 
 ### Cowrie
-- [Brute Force Attack — Cowrie](Brute-Force-Attack-Cowrie.md) — Hydra brute force attack against the honeypot
-- [Hardening — UFW & Fail2Ban](Hardening-Cowrie-UFW-Fail2Ban.md) — UFW firewall rules, IP/subnet blocking, fail2ban setup
+- [Brute Force Attack — Cowrie](Cowrie/Brute-Force-Attack-Cowrie.md) — Hydra brute force attack against the honeypot
+- [Hardening — UFW & Fail2Ban](Cowrie/Hardening-Cowrie-UFW-Fail2Ban.md) — UFW firewall rules, IP/subnet blocking, fail2ban setup
 
 ### T-Pot
-- [Brute Force Attack — T-Pot](Brute-Force-Attack-TPot.md) — *(in progress)*
-- [Hardening — UFW & Fail2Ban](Hardening-TPot-UFW-Fail2Ban.md) — *(in progress)*
+- [Brute Force Attack — T-Pot](T-Pot/Brute-Force-Attack-TPot.md) — *(in progress)*
+- [Hardening — UFW & Fail2Ban](T-Pot/Hardening-TPot-UFW-Fail2Ban.md) — *(in progress)*
 
 ### Installation Steps
 - [Cowrie Installation](Installation-Steps/Cowrie-Installation.md) — VM creation, Cowrie setup, iptables redirect

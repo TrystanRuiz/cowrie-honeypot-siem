@@ -14,13 +14,13 @@ sudo ufw enable
 
 Everything else gets dropped. If someone tries hitting any other port on this box, it's just gone.
 
-![UFW status](screenshots/hardening/05-ufw-status.png)
+![UFW status](../screenshots/hardening/05-ufw-status.png)
 
 ## Blocking a Single IP
 
 To test this out, I SSH'd into the honeypot from Kali (192.168.1.165) first to make sure the connection was working.
 
-![SSH working before block](screenshots/hardening/06-ssh-before-block.png)
+![SSH working before block](../screenshots/hardening/06-ssh-before-block.png)
 
 Then on the honeypot, I added a deny rule for that IP. The important thing here is using `ufw insert 1` instead of just `ufw deny`. If you just do `ufw deny`, the allow rules for ports 22 and 2222 get processed first and the traffic goes through anyway. `insert 1` puts the deny rule at the very top so it gets checked before anything else.
 
@@ -29,11 +29,11 @@ sudo ufw insert 1 deny from 192.168.1.165
 sudo ufw status numbered
 ```
 
-![UFW deny rule inserted at position 1](screenshots/hardening/07-ufw-deny-ip.png)
+![UFW deny rule inserted at position 1](../screenshots/hardening/07-ufw-deny-ip.png)
 
 Back on Kali, tried running Hydra and SSH again. Both just hang and eventually time out. The IP is completely blocked from reaching the honeypot.
 
-![Kali blocked by UFW](screenshots/hardening/08-kali-blocked.png)
+![Kali blocked by UFW](../screenshots/hardening/08-kali-blocked.png)
 
 After confirming it works, I deleted the rule to clean up.
 
@@ -41,7 +41,7 @@ After confirming it works, I deleted the rule to clean up.
 sudo ufw delete deny from 192.168.1.165
 ```
 
-![Rule deleted](screenshots/hardening/09-rule-deleted.png)
+![Rule deleted](../screenshots/hardening/09-rule-deleted.png)
 
 ## Blocking a Subnet
 
@@ -54,11 +54,11 @@ sudo ufw status numbered
 
 This blocks every IP from 192.168.1.1 to 192.168.1.254.
 
-![Subnet block rule](screenshots/hardening/10-subnet-block.png)
+![Subnet block rule](../screenshots/hardening/10-subnet-block.png)
 
 From Kali, SSH hangs again. The entire /24 is blocked.
 
-![Kali blocked by subnet rule](screenshots/hardening/11-subnet-blocked-kali.png)
+![Kali blocked by subnet rule](../screenshots/hardening/11-subnet-blocked-kali.png)
 
 Cleaned up the rule after testing.
 
@@ -66,7 +66,7 @@ Cleaned up the rule after testing.
 sudo ufw delete deny from 192.168.1.0/24
 ```
 
-![Subnet rule deleted, clean UFW](screenshots/hardening/12-subnet-deleted.png)
+![Subnet rule deleted, clean UFW](../screenshots/hardening/12-subnet-deleted.png)
 
 ## The Problem
 
@@ -100,20 +100,20 @@ failregex = .*\[HoneyPotSSHTransport,\S+,<HOST>\] login attempt .* (failed|succe
 
 Ran Hydra again from Kali. It still found 3 passwords but fail2ban caught the login attempts and banned the IP right after.
 
-![Hydra attack after fail2ban](screenshots/hardening/01-hydra-attack.png)
+![Hydra attack after fail2ban](../screenshots/hardening/01-hydra-attack.png)
 
 Checking the cowrie jail on the honeypot shows 192.168.1.194 is now banned. 4 total failed attempts detected, 1 IP currently banned.
 
-![fail2ban showing the ban](screenshots/hardening/02-fail2ban-banned.png)
+![fail2ban showing the ban](../screenshots/hardening/02-fail2ban-banned.png)
 
 ## Confirming the Ban
 
 Tried to SSH back into the honeypot from Kali and got `Connection refused`. The IP is completely blocked on port 2222.
 
-![Connection refused from Kali](screenshots/hardening/03-connection-refused.png)
+![Connection refused from Kali](../screenshots/hardening/03-connection-refused.png)
 
 ## Fail2Ban Logs in Splunk
 
 The fail2ban log is also forwarded to Splunk through the Universal Forwarder. You can search `sourcetype="fail2ban"` and see the ban event with the IP and timestamp.
 
-![Splunk showing fail2ban ban event](screenshots/hardening/04-splunk-fail2ban.png)
+![Splunk showing fail2ban ban event](../screenshots/hardening/04-splunk-fail2ban.png)

