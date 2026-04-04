@@ -1,4 +1,20 @@
-# Hardening with Fail2Ban
+# Hardening with UFW & Fail2Ban
+
+## UFW
+
+Enabled UFW on the honeypot VM with a default deny on all incoming traffic. Only ports 22 (real SSH for management) and 2222 (Cowrie) are open.
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22/tcp
+sudo ufw allow 2222/tcp
+sudo ufw enable
+```
+
+Everything else gets dropped. If someone tries hitting any other port on this box, it's just gone.
+
+![UFW status](screenshots/hardening/05-ufw-status.png)
 
 ## The Problem
 
