@@ -2,7 +2,7 @@
 
 SSH honeypot deployment and SIEM integration on Proxmox VE. Cowrie honeypot with Splunk log analysis, Hydra brute force simulation, and network hardening with UFW and fail2ban.
 
-Video = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
+Video i followed = https://youtu.be/uSohtNwQXuI?si=PXeezLlMXO5dqjA1
 
 ## Architecture
 
